@@ -18,23 +18,6 @@
 		mmc0 = &sdmmc;
 	};
 
-	cpu0_opp_table: opp_table0 {
-		compatible = "operating-points-v2";
-		opp-shared;
-		
-		opp-1392000000{
-			opp-hz = /bits/ 64 <1392000000>;
-			opp-microvolt = <1350000>;
-			clock-latency-ns = <40000>;
-		};
-
-		opp-1512000000{
-			opp-hz =  /bits/ 64 <1512000000>;
-			opp-microvolt = <1450000>;
-			clock-latency-ns = <40000>;
-		};	
-	}
-
 	chosen {
 		stdout-path = "serial2:1500000n8";
 	};
@@ -147,6 +130,23 @@
 
 &cpu3 {
 	cpu-supply = <&vdd_arm>;
+};
+
+&cpu0_opp_table {
+		compatible = "operating-points-v2";
+		opp-shared;
+		
+		opp-1392000000{
+			opp-hz = /bits/ 64 <1392000000>;
+			opp-microvolt = <1350000>;
+			clock-latency-ns = <40000>;
+		};
+
+		opp-1512000000{
+			opp-hz =  /bits/ 64 <1512000000>;
+			opp-microvolt = <1450000>;
+			clock-latency-ns = <40000>;
+		};	
 };
 
 &display_subsystem {
